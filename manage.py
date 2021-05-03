@@ -1,7 +1,10 @@
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
-from info import app, db
+from info import db, create_app
 
+# 创建app,病传入配置模式:development / production
+
+app = create_app('development')
 
 # 管理app对象及数据库迁移
 manager = Manager(app)

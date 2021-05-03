@@ -32,3 +32,10 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     """生产环境下的配置"""
     pass
+
+
+# 定义配置字典
+config = {
+    'development': DevelopmentConfig,
+    'production': ProductionConfig
+}
