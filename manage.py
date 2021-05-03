@@ -1,27 +1,7 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from redis import StrictRedis
-from flask_wtf.csrf import CSRFProtect
-from flask_session import Session
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
+from info import app, db
 
-# 导入配置文件
-from config import Config
-
-# 创建app对象
-app = Flask(__name__)
-app.config.from_object(Config)
-
-# 创建数据库对象
-db = SQLAlchemy(app)
-
-# redis数据交互
-redis_store = StrictRedis(host=Config.REDIS_HOST, port=Config.REDIS_PORT)
-
-# 请求提的请求都开启CSRF
-CSRFProtect(app)
-Session(app)
 
 # 管理app对象及数据库迁移
 manager = Manager(app)
