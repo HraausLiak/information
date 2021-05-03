@@ -3,7 +3,6 @@ from redis import StrictRedis
 
 class Config(object):
     """项目配置信息"""
-    DEBUG = True
 
     # 数据库的配置信息
     SQLALCHEMY_DATABASE_URI = "mysql://root:mysql@127.0.0.1:3306/information18"
@@ -24,3 +23,12 @@ class Config(object):
     # session的有效期,单位是秒
     PERMANENT_SESSION_LIFETIME = 86400
 
+
+class DevelopmentConfig(Config):
+    """开发者模式下的配置"""
+    DEBUG = True
+
+
+class ProductionConfig(Config):
+    """生产环境下的配置"""
+    pass
